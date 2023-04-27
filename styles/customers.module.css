@@ -1,0 +1,53 @@
+
+.tableContainer{
+    padding: 10% 10%;
+    margin: 40px auto 0;
+
+}
+
+.table thead {
+    background-color: beige;
+}
+
+.table thead tr th {
+    padding: 12px;
+    vertical-align: top;
+    letter-spacing: 0.35px;
+}
+
+.table tbody tr td{
+    letter-spacing: 0.35px;
+    padding: 8px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .table thead{
+        display: none;
+    }
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width:auto
+    }
+    .table tr{
+        border: 1px solid green;
+        margin-bottom: 15px;
+    }
+    
+}
+
+.receiptPrice {
+    text-align: center;
+    /* position: absolute;
+    left: 50%; */
+    margin: auto;
+}
+
+.receiptPrice button {
+    height: 20px;
+}
+
+.receiptStuff {
+    margin-top: 10px;
+    display: grid;
+}
