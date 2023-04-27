@@ -43,10 +43,12 @@
     left: 50%; */
     margin: auto;
     background-color: white;
+    margin-bottom: 10px;
 }
 
 .receiptPrice button {
     height: 20px;
+    margin-bottom: 0;
 }
 
 .receiptStuff {
