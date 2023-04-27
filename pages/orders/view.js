@@ -10,8 +10,8 @@ let findSides = (sides) => {
     return count;
   }
   for(let i = 0; i < sides.length; i++){
-      if(sides.type == "drink"){
-          count[sides.size - 1] ++
+      if(sides[i].type == "Drink"){
+          count[sides[i].size - 1] ++
       }
       else{
           count[3] ++
@@ -32,7 +32,6 @@ const Customers = () => {
         setCustomers(data);
         setLoading(false);
         console.log(data);
-        sides = findSides(data.sides)
 
       })
       .catch((e) => console.log(e));
@@ -73,10 +72,10 @@ const Customers = () => {
                   <td data-label="Vegetables">{c.vegetables}</td>
                   <td data-label="Bread">{c.bread}</td>
                   <td data-label="Cheese">{c.cheese}</td>
-                  <td data-label="Small Drink Count">{sides[0]}</td>
-                  <td data-label="Medium Drink Count">{sides[1]}</td>
-                  <td data-label="Large Drink Count">{sides[2]}</td>
-                  <td data-label="Chips Count">{sides[3]}</td>
+                  <td data-label="Small Drink Count">{findSides(c.sides)[0]}</td>
+                  <td data-label="Medium Drink Count">{findSides(c.sides)[1]}</td>
+                  <td data-label="Large Drink Count">{findSides(c.sides)[2]}</td>
+                  <td data-label="Chips Count">{findSides(c.sides)[3]}</td>
                   <td data-label="Reciept"><Link href= {"../receipts?pid=" + c.id}>Receipt</Link></td>
                 </tr>
               ))}

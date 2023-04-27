@@ -105,7 +105,7 @@ let saveOrder = (order) => {
 }
 
 let reorder = (id) =>  {
-    return fetch(orderHost + "/reorder/" + id, {
+    return fetch(orderHost + "/orders/reorder/" + id, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

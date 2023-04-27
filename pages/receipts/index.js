@@ -32,11 +32,12 @@ let findSides = (sides) => {
   return count
 }
 
-let reorder = (pid) => {
-  data.reorder(pid)
-}
+
 
 export default function Customers () {
+  // let reorder = (pid) => {
+  //   data.reorder(pid)
+  // }
   const router = useRouter();
         const [customers, setCustomers] = useState([]);
         const [loading, setLoading] = useState(false);
@@ -54,8 +55,8 @@ export default function Customers () {
                       setCustomers([data]);
                       setLoading(false);
                       console.log(data);
-                      sides = findSides(data.sides);
-                      price = data.price;
+                      // sides = findSides(data.sides);
+                      // price = data.price;
                     })
                     .catch((e) => console.log(e));
           }
@@ -84,48 +85,24 @@ export default function Customers () {
           return (
             <>
               <div className={styles.tableContainer}>
+                {/* {customers.map(p, i) => (<p>{p.response}</p>)} */}
                 <table className={styles.table}>
                   <thead>
                     <tr>
-                      <th>Order Id</th>
-                      <th>Customer Id</th>
-                      <th>Turkey Count</th>
-                      <th>Avocado Count</th>
-                      <th>Ham Count</th>
-                      <th>Vegetables</th>
-                      <th>Bread</th>
-                      <th>Cheese</th>
-                      <th>Small Drink Count</th>
-                      <th>Medium Drink Count</th>
-                      <th>Large Drink Count</th>
-                      <th>Chips Count</th>
-                      <th>Reciept</th>
+                      <th>Receipt</th>
                     </tr>
                   </thead>
                   <tbody>
                     {customers.map((c, i) => (
                       <tr key={i}>
-                          <td data-label="Order Id">{c.orderid}</td>
-                          <td data-label="Customer Id">{c.customerId}</td>
-                        <td data-label="Turkey Count">{c.turkeyCount}</td>
-                        <td data-label="Avocado Count">{c.avocadoCount}</td>
-                        <td data-label="Ham Count">{c.hamCount}</td>
-                        <td data-label="Vegetables">{c.vegetables}</td>
-                        <td data-label="Bread">{c.bread}</td>
-                        <td data-label="Cheese">{c.cheese}</td>
-                        <td data-label="Small Drink Count">{sides[0]}</td>
-                        <td data-label="Medium Drink Count">{sides[1]}</td>
-                        <td data-label="Large Drink Count">{sides[2]}</td>
-                        <td data-label="Chips Count">{sides[3]}</td>
-                        {/* <td data-label="Reciept"><Link href= {"../receipts/" + c.orderid}></Link></td> */}
+                          <td data-label="Receipt">{c.response}</td>
                       </tr>
                     ))}
                   </tbody>
-                </table>
+                </table> 
               </div>
               <div className={styles.receiptStuff}>
-              <h2 className={styles.receiptPrice}>Total Cost is {price}</h2> <br/>
-              <Link href="orders/view" className={styles.receiptPrice}><button onClick={reorder(pid)} className={styles.receiptPrice}>Reorder This!</button></Link> <br/>
+              <Link href="orders/view" className={styles.receiptPrice}><button onClick={() => {data.reorder(pid)}} className={styles.receiptPrice}>Reorder This!</button></Link> <br/>
               <Link href="/orders/view" className={styles.receiptPrice}>Go Back</Link>
               </div>
             </>
