@@ -1,8 +1,8 @@
 //let host = process.env.NEXT_PUBLIC_BACKEND_HOST;
 
-let orderHost = "http://localhost:8090";
-let customerHost = "http://localhost:8091";
-let receiptHost = "http://localhost:8092";
+let orderHost = "https://final-orderservice-production.up.railway.app";
+let customerHost = "https://final-customerservice-production.up.railway.app";
+let receiptHost = "https://final-receiptservice-production.up.railway.app";
 
 let findAllCustomers = () => {
     return fetch(customerHost + '/customers')
